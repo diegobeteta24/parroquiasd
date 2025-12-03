@@ -1,0 +1,16 @@
+{
+  "id": "pi_test_verificacion_" + Date.now(),
+  "event_type": "payment_intent.succeeded",
+  "amount_in_cents": 5000,
+  "currency": "GTQ",
+  "created_at": "2025-11-21T18:30:00Z",
+  "metadata": {
+    "mass_id": null,
+    "intention_type": "normal",
+    "category": "accion_de_gracias",
+    "public_text": "Prueba de webhook - verificación sistema",
+    "donor_name": "Test Webhook",
+    "donor_email": "test@webhook.com",
+    "donor_phone": null
+  }
+}

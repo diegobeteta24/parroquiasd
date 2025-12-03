@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+/* Theme variables */
+:root {
+    --crema: theme(colors.crema);
+    --oro: theme(colors.oro);
+    --oroscuro: theme(colors.oroscuro);
+    --carbon: theme(colors.carbon);
+}
+
+@layer components {
+    .btn-primary { @apply inline-flex items-center gap-2 rounded-md bg-oro px-4 py-2 text-sm font-semibold text-carbon shadow hover:bg-oro/95 focus:outline-none focus-visible:ring-2 focus-visible:ring-oro/60; }
+    .btn-secondary { @apply inline-flex items-center gap-2 rounded-md border border-oro/40 bg-oro/10 px-4 py-2 text-sm font-semibold text-carbon hover:bg-oro/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-oro/60; }
+    .card { @apply rounded-xl border border-carbon/10 bg-gradient-to-b from-carbon/5 to-transparent p-5; }
+    .card-title { @apply font-medium text-lg text-carbon; }
+    .card-body { @apply mt-1 text-carbon/70; }
+    .card-link { @apply mt-3 inline-flex items-center gap-2 text-oro hover:text-oroscuro; }
+    .section-heading { @apply font-serif text-2xl font-semibold; }
+    .surface-panel { @apply rounded-2xl border border-white/20 bg-white/70 p-6 text-carbon shadow-[0_20px_45px_-30px_rgba(15,23,42,.9)] backdrop-blur; }
+    .surface-panel-dark { @apply rounded-2xl border border-white/10 bg-carbon/90 text-crema/90 shadow-inner; }
+    .pill { @apply inline-flex items-center gap-1 rounded-full border border-oro/40 bg-oro/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-carbon/80; }
+    .stat-card { @apply rounded-2xl border border-carbon/10 bg-white/90 p-5 shadow-sm; }
+    .stat-value { @apply text-2xl font-semibold text-carbon; }
+    .link-chevron { @apply inline-flex items-center gap-2 text-sm font-semibold text-oro transition hover:text-oroscuro; }
+    .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.2em] text-oro; }
+    .divider { @apply h-px w-full bg-gradient-to-r from-transparent via-carbon/20 to-transparent; }
+    .section-shell { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
+    .halo-card { @apply rounded-3xl border border-oro/30 bg-gradient-to-br from-white via-oro/10 to-white p-6 shadow-sm; }
+    .devotion-card { @apply rounded-2xl border border-carbon/10 bg-white/90 p-6 text-carbon shadow-[0_25px_50px_-35px_rgba(15,23,42,.6)]; }
+    .timeline { @apply relative flex flex-col gap-6 pl-6; }
+    .timeline::before { @apply absolute left-3 top-0 h-full w-px bg-carbon/10 content-['']; }
+    .timeline-item { @apply relative pl-4; }
+    .timeline-item::before { @apply absolute left-[-13px] top-2 h-2.5 w-2.5 rounded-full border border-oro bg-white content-['']; }
+    .badge-soft { @apply inline-flex items-center rounded-full bg-carbon/5 px-3 py-1 text-xs font-medium text-carbon/70; }
+}
+
+@layer utilities {
+    .text-shadow { text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+    .glass-light { @apply bg-white/70 backdrop-blur; }
+    .glass-dark { @apply bg-black/40 backdrop-blur; }
+}

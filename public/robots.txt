@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+# Sitemap (ajusta dominio si difiere de APP_URL)
+Sitemap: {{ config('app.url') ?? url('/') }}/sitemap.xml
+
+# Permite previsualización de imágenes grandes (ya controlado por meta robots)
+# Crawl-delay no se usa por Google, pero otros bots pueden respetar. Ajustar si necesario.
