@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\Admin\MassCalendarController;
 use App\Http\Controllers\PublicIntentionController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Certificates\IntentionCertificateController;
 use App\Http\Controllers\Certificates\PublicIntentionCertificateController;
 
@@ -12,7 +13,10 @@ Route::view('/', 'pages.home')->name('home');
 Route::view('/historia', 'pages.historia')->name('historia');
 Route::view('/galeria', 'pages.galeria')->name('galeria');
 Route::view('/horarios', 'pages.horarios')->name('horarios');
-Route::view('/contacto', 'pages.contacto')->name('contacto');
+
+// Contacto con formulario funcional
+Route::get('/contacto', [ContactController::class, 'show'])->name('contacto');
+Route::post('/contacto', [ContactController::class, 'send'])->name('contacto.send');
 
 // Intenciones públicas (Recurrente)
 Route::get('/intenciones', [PublicIntentionController::class, 'form'])->name('intentions.form');

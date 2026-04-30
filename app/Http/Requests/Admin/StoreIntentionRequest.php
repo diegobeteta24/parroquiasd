@@ -38,7 +38,7 @@ class StoreIntentionRequest extends FormRequest
     public function prepareForValidation(): void
     {
         $this->merge([
-            'is_prepaid' => true,
+            'is_prepaid' => $this->boolean('is_prepaid'),
             'novena' => $this->boolean('novena'),
         ]);
 

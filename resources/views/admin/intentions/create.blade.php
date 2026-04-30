@@ -54,7 +54,7 @@
     $intentionConfig = [
         'initialType' => $defaultType,
         'initialPaymentMethod' => old('payment_method', 'cash'),
-        'initialPrepaid' => (bool) old('is_prepaid', true),
+        'initialPrepaid' => (bool) old('is_prepaid', false),
         'initialNovena' => (bool) old('novena'),
         'initialTimes' => max(1, $initialTimes),
         'initialExtra' => $initialExtras->all(),
@@ -62,7 +62,7 @@
         'prices' => collect($typeOptions)->mapWithKeys(fn ($option, $key) => [$key => $option['price']])->all(),
         'labels' => collect($typeOptions)->mapWithKeys(fn ($option, $key) => [$key => $option['label']])->all(),
         'maxTimes' => $maxRepetitions,
-        'forcePrepaid' => true,
+        'forcePrepaid' => false,
     ];
 @endphp
 
@@ -280,13 +280,12 @@
                             <p class="text-sm text-red-600">{{ $message }}</p>
                         @enderror
                         <div class="grid gap-4 sm:grid-cols-2">
-                            <input type="hidden" name="is_prepaid" value="1">
-                            <div class="sm:col-span-2 space-y-1">
+                            <div class="sm:col-span-2 space-y-2">
                                 <label class="inline-flex w-full items-center gap-3 rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700">
-                                    <input type="checkbox" value="1" class="rounded border-gray-300 text-indigo-600" x-model="isPrepaid" checked disabled>
-                                    <span>Pagada (registros internos)</span>
+                                    <input type="checkbox" name="is_prepaid" value="1" class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" x-model="isPrepaid" @checked(old('is_prepaid'))>
+                                    <span>Marcar como registro histórico (no suma en reportes)</span>
                                 </label>
-                                <p class="text-xs text-gray-500">Las intenciones registradas manualmente ya incluyen su pago.</p>
+                                <p class="text-xs text-gray-500">Déjalo desmarcado para intenciones cobradas en ventanilla o por transferencia del mes actual. Actívalo solo si estás cargando meses anteriores ya conciliados.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-3">
                                 <input type="number" step="0.01" name="stipend_amount_gtq" value="{{ old('stipend_amount_gtq') }}" placeholder="Monto Q" class="rounded-2xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500">
@@ -393,8 +392,8 @@
                                 <dd><span x-text="extra.length"></span>/<span x-text="maxExtra"></span></dd>
                             </div>
                             <div class="flex items-center justify-between">
-                                <dt>Estado del pago</dt>
-                                <dd x-text="isPrepaid ? 'Marcada como pagada' : 'Pendiente de cobro'"></dd>
+                                <dt>Impacto en reporte</dt>
+                                <dd x-text="isPrepaid ? 'Histórico (no suma)' : 'Cuenta en el mes'"></dd>
                             </div>
                             <div class="flex items-center justify-between">
                                 <dt>Comprobante</dt>

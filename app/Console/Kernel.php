@@ -13,17 +13,12 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\IntentionsPurge::class,
         \App\Console\Commands\SimulateRecurrenteWebhook::class,
         \App\Console\Commands\PurgeTodayCertificates::class,
+        \App\Console\Commands\SendBackupToRelayCommand::class,
     ];
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('masses:materialize --days=365 --tz=America/Guatemala')
-            ->timezone('America/Guatemala')
-            ->dailyAt('02:05');
-
-        // Daily DB backup at 7:00 PM Guatemala
-        $schedule->command('backup:database --keep=14')
-            ->timezone('America/Guatemala')
-            ->dailyAt('19:00');
+        $defineSchedule = require base_path('routes/schedule.php');
+        $defineSchedule($schedule);
     }
 
     protected function commands(): void

@@ -116,20 +116,21 @@
 
         @include('partials.header')
 
-    <main id="contenido" class="relative px-4 sm:px-0">
+    <main id="contenido" class="relative">
                 @yield('content')
         </main>
 
         @include('partials.footer')
 
+        <!-- Botón volver arriba - optimizado para móvil -->
         <button
                 type="button"
-                class="fixed bottom-6 right-6 z-40 hidden items-center gap-2 rounded-full bg-oro text-carbon px-4 py-3 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-oro/60"
+                class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 hidden items-center justify-center rounded-full bg-oro text-carbon w-12 h-12 sm:w-auto sm:h-auto sm:gap-2 sm:px-4 sm:py-3 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-oro/60 active:scale-95 transition-transform"
                 aria-label="Volver arriba"
                 data-backtotop
         >
-                <x-ui.icon name="chevron-up" class="h-5 w-5" />
-                <span class="text-sm font-medium">Arriba</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+                <span class="hidden sm:inline text-sm font-medium">Arriba</span>
         </button>
 
     @stack('modals')

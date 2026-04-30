@@ -14,34 +14,129 @@
     --carbon: theme(colors.carbon);
 }
 
+/* Scrollbar styling para navegadores webkit */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5efe7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b38e2c;
+}
+
+/* Selection styling */
+::selection {
+    background: rgba(212, 175, 55, 0.3);
+    color: #111112;
+}
+
 @layer components {
-    .btn-primary { @apply inline-flex items-center gap-2 rounded-md bg-oro px-4 py-2 text-sm font-semibold text-carbon shadow hover:bg-oro/95 focus:outline-none focus-visible:ring-2 focus-visible:ring-oro/60; }
-    .btn-secondary { @apply inline-flex items-center gap-2 rounded-md border border-oro/40 bg-oro/10 px-4 py-2 text-sm font-semibold text-carbon hover:bg-oro/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-oro/60; }
-    .card { @apply rounded-xl border border-carbon/10 bg-gradient-to-b from-carbon/5 to-transparent p-5; }
-    .card-title { @apply font-medium text-lg text-carbon; }
-    .card-body { @apply mt-1 text-carbon/70; }
-    .card-link { @apply mt-3 inline-flex items-center gap-2 text-oro hover:text-oroscuro; }
-    .section-heading { @apply font-serif text-2xl font-semibold; }
-    .surface-panel { @apply rounded-2xl border border-white/20 bg-white/70 p-6 text-carbon shadow-[0_20px_45px_-30px_rgba(15,23,42,.9)] backdrop-blur; }
-    .surface-panel-dark { @apply rounded-2xl border border-white/10 bg-carbon/90 text-crema/90 shadow-inner; }
-    .pill { @apply inline-flex items-center gap-1 rounded-full border border-oro/40 bg-oro/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-carbon/80; }
-    .stat-card { @apply rounded-2xl border border-carbon/10 bg-white/90 p-5 shadow-sm; }
-    .stat-value { @apply text-2xl font-semibold text-carbon; }
+    .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-md bg-oro px-3 sm:px-4 py-2 text-sm font-semibold text-carbon shadow hover:bg-oro/95 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-oro/60 transition-all duration-200; }
+    .btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-md border border-oro/40 bg-oro/10 px-3 sm:px-4 py-2 text-sm font-semibold text-carbon hover:bg-oro/20 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-oro/60 transition-all duration-200; }
+    .btn-whatsapp { @apply inline-flex items-center justify-center gap-2 rounded-full bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-green-700 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500/60 transition-all duration-200; }
+    .card { @apply rounded-xl border border-carbon/10 bg-gradient-to-b from-carbon/5 to-transparent p-4 sm:p-5; }
+    .card-title { @apply font-medium text-base sm:text-lg text-carbon; }
+    .card-body { @apply mt-1 text-sm sm:text-base text-carbon/70; }
+    .card-link { @apply mt-3 inline-flex items-center gap-2 text-oro hover:text-oroscuro transition-colors; }
+    .section-heading { @apply font-serif text-xl sm:text-2xl font-semibold; }
+    .surface-panel { @apply rounded-2xl border border-white/20 bg-white/70 p-4 sm:p-6 text-carbon shadow-[0_20px_45px_-30px_rgba(15,23,42,.9)] backdrop-blur; }
+    .surface-panel-dark { @apply rounded-2xl border border-white/10 bg-carbon/90 text-crema/90 shadow-inner p-4 sm:p-5; }
+    .pill { @apply inline-flex items-center gap-1 rounded-full border border-oro/40 bg-oro/10 px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-carbon/80; }
+    .stat-card { @apply rounded-2xl border border-carbon/10 bg-white/90 p-4 sm:p-5 shadow-sm; }
+    .stat-value { @apply text-xl sm:text-2xl font-semibold text-carbon; }
     .link-chevron { @apply inline-flex items-center gap-2 text-sm font-semibold text-oro transition hover:text-oroscuro; }
-    .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.2em] text-oro; }
+    .eyebrow { @apply text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-oro; }
     .divider { @apply h-px w-full bg-gradient-to-r from-transparent via-carbon/20 to-transparent; }
     .section-shell { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
-    .halo-card { @apply rounded-3xl border border-oro/30 bg-gradient-to-br from-white via-oro/10 to-white p-6 shadow-sm; }
-    .devotion-card { @apply rounded-2xl border border-carbon/10 bg-white/90 p-6 text-carbon shadow-[0_25px_50px_-35px_rgba(15,23,42,.6)]; }
-    .timeline { @apply relative flex flex-col gap-6 pl-6; }
-    .timeline::before { @apply absolute left-3 top-0 h-full w-px bg-carbon/10 content-['']; }
-    .timeline-item { @apply relative pl-4; }
-    .timeline-item::before { @apply absolute left-[-13px] top-2 h-2.5 w-2.5 rounded-full border border-oro bg-white content-['']; }
-    .badge-soft { @apply inline-flex items-center rounded-full bg-carbon/5 px-3 py-1 text-xs font-medium text-carbon/70; }
+    .halo-card { @apply rounded-2xl sm:rounded-3xl border border-oro/30 bg-gradient-to-br from-white via-oro/10 to-white p-4 sm:p-6 shadow-sm hover:shadow-md active:scale-[0.99] transition-all duration-300; }
+    .devotion-card { @apply rounded-xl sm:rounded-2xl border border-carbon/10 bg-white/90 p-4 sm:p-6 text-carbon shadow-[0_15px_35px_-25px_rgba(15,23,42,.5)] sm:shadow-[0_25px_50px_-35px_rgba(15,23,42,.6)] hover:shadow-[0_25px_50px_-30px_rgba(15,23,42,.7)] active:scale-[0.99] transition-all duration-300; }
+    .timeline { @apply relative flex flex-col gap-4 sm:gap-6 pl-5 sm:pl-6; }
+    .timeline::before { @apply absolute left-2 sm:left-3 top-0 h-full w-px bg-carbon/10 content-['']; }
+    .timeline-item { @apply relative pl-3 sm:pl-4; }
+    .timeline-item::before { @apply absolute left-[-11px] sm:left-[-13px] top-2 h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full border border-oro bg-white content-['']; }
+    .badge-soft { @apply inline-flex items-center rounded-full bg-carbon/5 px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-medium text-carbon/70; }
+    
+    /* Componentes católicos mejorados para móvil */
+    .prayer-box { @apply rounded-xl border border-oro/30 bg-gradient-to-br from-oro/10 to-oro/5 p-4 sm:p-6 text-center; }
+    .saint-card { @apply rounded-xl border border-carbon/10 bg-white/80 p-4 sm:p-5 text-center hover:shadow-lg active:scale-[0.99] transition-all duration-300; }
+    .mass-time { @apply inline-flex items-center gap-2 rounded-full bg-carbon/5 px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium text-carbon; }
+    .sacrament-card { @apply rounded-xl border border-carbon/10 bg-white/60 backdrop-blur p-4 sm:p-5 hover:border-oro/30 active:scale-[0.99] transition-all duration-300; }
 }
 
 @layer utilities {
     .text-shadow { text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+    .text-shadow-lg { text-shadow: 0 2px 8px rgba(0,0,0,.9), 0 1px 3px rgba(0,0,0,.8); }
     .glass-light { @apply bg-white/70 backdrop-blur; }
     .glass-dark { @apply bg-black/40 backdrop-blur; }
+    
+    /* Animación para elementos devocionales */
+    .animate-pulse-gold {
+        animation: pulse-gold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pulse-gold {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.7;
+        }
+    }
+    
+    /* Para elementos que aparecen con scroll */
+    .fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Safe area para dispositivos con notch */
+    .safe-top { padding-top: env(safe-area-inset-top); }
+    .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+    .safe-left { padding-left: env(safe-area-inset-left); }
+    .safe-right { padding-right: env(safe-area-inset-right); }
+}
+
+/* Mejoras específicas para móvil */
+@media (max-width: 640px) {
+    /* Mejorar tap targets en móvil */
+    a, button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Texto más legible en móvil */
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+    
+    /* Evitar zoom en inputs en iOS */
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+    
+    /* Mejorar scroll en móvil */
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
 }

@@ -4,7 +4,8 @@ return [
     'login_enabled' => env('PORTAL_LOGIN_ENABLED', true),
     'intentions_enabled' => env('INTENTIONS_ENABLED', true),
     'intentions_max_repetitions' => (int) env('INTENTIONS_MAX_REPETITIONS', 1000),
-    'intentions_admin_ignore_capacity' => env('INTENTIONS_ADMIN_IGNORE_CAPACITY', true),
+    // Secretarias deben respetar el cupo salvo que el entorno lo permita explícitamente
+    'intentions_admin_ignore_capacity' => env('INTENTIONS_ADMIN_IGNORE_CAPACITY', false),
 
     'parish' => [
         'name' => 'Parroquia Santo Domingo',

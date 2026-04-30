@@ -76,7 +76,7 @@ class IntentionController extends Controller
         }
 
         $data = $request->validated();
-        $isPrepaid = true; // Intenciones internas ya vienen liquidadas
+            $isPrepaid = (bool) ($data['is_prepaid'] ?? false);
         $maxRepetitions = $this->maxRepetitions();
 
         // Set amount based on type
@@ -161,8 +161,8 @@ class IntentionController extends Controller
                     'stipend_amount_gtq' => $data['stipend_amount_gtq'] ?? null,
                     'payment_method' => $data['payment_method'],
                     'payment_ref' => $data['payment_ref'] ?? null,
-                    'status' => $isPrepaid ? 'paid' : 'confirmed',
-                    'paid_at' => $isPrepaid ? now() : null,
+                    'status' => 'paid',
+                    'paid_at' => now(),
                     'channel' => 'counter',
                     'is_prepaid' => $isPrepaid,
                     'code' => strtoupper(bin2hex(random_bytes(4))),
@@ -369,8 +369,8 @@ public function update(UpdateIntentionRequest $request, Intention $intention)
                         'stipend_amount_gtq' => $intention->stipend_amount_gtq,
                         'payment_method' => $intention->payment_method,
                         'payment_ref' => $intention->payment_ref,
-                        'status' => $intention->is_prepaid ? 'paid' : 'confirmed',
-                        'paid_at' => $intention->is_prepaid ? now() : null,
+                        'status' => 'paid',
+                        'paid_at' => $intention->paid_at ?? now(),
                         'channel' => $intention->channel,
                         'is_prepaid' => $intention->is_prepaid,
                         'code' => strtoupper(bin2hex(random_bytes(4))),
@@ -511,8 +511,8 @@ public function update(UpdateIntentionRequest $request, Intention $intention)
                     'stipend_amount_gtq' => $intention->stipend_amount_gtq,
                     'payment_method' => $intention->payment_method,
                     'payment_ref' => $intention->payment_ref,
-                    'status' => $intention->is_prepaid ? 'paid' : 'confirmed',
-                    'paid_at' => $intention->is_prepaid ? now() : null,
+                    'status' => 'paid',
+                    'paid_at' => $intention->paid_at ?? now(),
                     'channel' => 'counter',
                     'is_prepaid' => $intention->is_prepaid,
                     'code' => strtoupper(bin2hex(random_bytes(4))),

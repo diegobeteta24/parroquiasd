@@ -33,7 +33,7 @@ class BackupDatabase extends Command
                     $env = '';
                     if ($password) { $env = 'MYSQL_PWD=' . escapeshellarg($password) . ' '; }
                     $cmd = sprintf(
-                        "%smysqldump --host=%s --port=%d --user=%s --routines --events --single-transaction %s > %s",
+                        "%smysqldump --host=%s --port=%d --user=%s --routines --events --single-transaction --no-tablespaces %s > %s",
                         $env,
                         escapeshellarg($host),
                         $port,

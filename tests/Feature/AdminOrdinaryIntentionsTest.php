@@ -45,7 +45,7 @@ it('allows secretaria to register an ordinary intention', function () {
     expect($intention)->not->toBeNull();
     expect($intention->type)->toBe('rezada');
     expect((float) $intention->amount)->toBe(50.0);
-    expect($intention->status)->toBe('confirmed');
+    expect($intention->status)->toBe('paid');
     expect($intention->channel)->toBe('counter');
     expect($intention->dedicatee?->name)->toBe('Juan');
 
