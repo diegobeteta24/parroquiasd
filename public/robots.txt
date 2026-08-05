@@ -1,7 +1,24 @@
 User-agent: *
-Disallow:
-# Sitemap (ajusta dominio si difiere de APP_URL)
-Sitemap: {{ config('app.url') ?? url('/') }}/sitemap.xml
+Allow: /
 
-# Permite previsualización de imágenes grandes (ya controlado por meta robots)
-# Crawl-delay no se usa por Google, pero otros bots pueden respetar. Ajustar si necesario.
+# Áreas privadas: no vale la pena que los buscadores gasten rastreo aquí,
+# todas redirigen al inicio de sesión.
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+Disallow: /user/
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /two-factor-challenge
+
+# Certificados de intención: son enlaces con token, personales de quien los
+# solicitó. No deben aparecer en resultados de búsqueda.
+Disallow: /intenciones/certificado
+Disallow: /intenciones/success
+Disallow: /intenciones/cancel
+
+# Este archivo lo sirve nginx tal cual, sin pasar por PHP. El dominio va escrito
+# porque una expresión de Blade aquí dentro se publica literal, y la directiva
+# Sitemap acaba apuntando a ninguna parte.
+Sitemap: https://basilicadelrosario.gt/sitemap.xml
