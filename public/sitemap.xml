@@ -1,27 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Este archivo lo sirve nginx tal cual, sin pasar por PHP. Por eso el dominio va
+  escrito: aquí había una expresión de Blade, que se publicaba literal dentro de
+  cada loc. Eso no es una URL válida, y Google descartaba el sitemap entero.
+
+  Si se agrega una página pública, se agrega aquí. No se pone <lastmod> porque
+  una fecha fija en un archivo estático envejece y engaña; sin ella, el buscador
+  usa su propio criterio, que es preferible a una fecha falsa.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>{{ config('app.url') ?? url('/') }}/</loc>
+    <loc>https://basilicadelrosario.gt/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>{{ config('app.url') ?? url('/') }}/historia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>{{ config('app.url') ?? url('/') }}/galeria</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>{{ config('app.url') ?? url('/') }}/horarios</loc>
+    <loc>https://basilicadelrosario.gt/horarios</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>{{ config('app.url') ?? url('/') }}/contacto</loc>
+    <loc>https://basilicadelrosario.gt/intenciones</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://basilicadelrosario.gt/historia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://basilicadelrosario.gt/galeria</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://basilicadelrosario.gt/contacto</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
