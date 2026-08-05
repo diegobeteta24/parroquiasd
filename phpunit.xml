@@ -22,7 +22,25 @@
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="CACHE_STORE" value="array"/>
-        
+
+        <!--
+            Base de datos de pruebas. NO QUITAR.
+
+            tests/TestCase.php usa RefreshDatabase en la clase base, así que
+            cada prueba hace migrate:fresh, que es un DROP de todas las tablas.
+            Sin estas líneas, PHPUnit se cae al .env y ese apunta a la base de
+            producción: correr las pruebas borraría el sitio de la basílica
+            entero —intenciones de misa incluidas— sin preguntar nada.
+
+            Crear la base una sola vez:
+              CREATE DATABASE parroquiasd_test
+                CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+        -->
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_HOST" value="127.0.0.1"/>
+        <env name="DB_PORT" value="3306"/>
+        <env name="DB_DATABASE" value="parroquiasd_test"/>
+
         <env name="MAIL_MAILER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>
