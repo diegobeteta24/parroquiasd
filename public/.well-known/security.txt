@@ -1,0 +1,9 @@
+# Canal para reportar vulnerabilidades de seguridad en basilicadelrosario.gt
+#
+# El sitio lo mantiene Betegar. Si encontraste un problema de seguridad,
+# escribinos antes de divulgarlo y te respondemos.
+
+Contact: mailto:contacto@betegar.com
+Expires: 2027-08-01T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://basilicadelrosario.gt/.well-known/security.txt
