@@ -127,7 +127,7 @@
                 </div>
                 <div class="text-crema/50 italic hidden sm:block">«Contempláis y compartid lo contemplado»</div>
                 <div>
-                    <span class="text-crema/40">por</span> <a href="#" class="text-oro/80 hover:text-oro">Betegar</a>
+                    <span class="text-crema/40">Sitio desarrollado por</span> <a href="https://betegar.com" target="_blank" rel="noopener" class="text-oro/80 hover:text-oro">Betegar</a>
                 </div>
             </div>
         </div>
